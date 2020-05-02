@@ -1,0 +1,28 @@
+.main-header {
+  height: 60px;
+  width:100%;
+}
+.header-menu{
+  float: right;
+  height: 50px;
+  margin-right:10px;
+}
+h6{
+  float: left;
+  height: 40px;
+  margin-top: 4px;
+  margin-left: 10px;
+}
+row{
+  margin-top: 100px;
+  text-align: center;
+}
+.input-group{
+  width: 40%;
+  margin-top:auto;
+  margin-left:auto;
+  margin-bottom: auto;
+  margin-right: auto;
+}
+
+

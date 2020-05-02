@@ -1,0 +1,14 @@
+li {list-style:none;}
+
+.buttonAction {
+  margin-right: 20px;
+}
+.main-header {
+  height: 60px;
+  width:100%;
+}
+.header-menu{
+  float: right;
+  height: 50px;
+  margin-right:10px;
+}

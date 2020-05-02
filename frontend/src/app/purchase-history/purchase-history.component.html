@@ -1,0 +1,36 @@
+<div class="main-header">
+  <span class="header-menu">
+    <a routerLink="/shopping-cart" routerLinkActive="active"><img src="../assets/cart1.jpg"></a>&nbsp;
+    <a routerLink="/login" routerLinkActive="active">logOut</a>&nbsp;
+</span>
+</div>
+<h4>Purchase History</h4>
+<form>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col" sortable="name" >SellerInfo</th>
+      <th scope="col" sortable="area" >Item</th>
+      <th scope="col" sortable="population" >Purchase quantity</th>
+      <th scope="col" sortable="updateDate" >DateTime</th>
+      <th scope="col" sortable="action" >Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of purchaseList">
+      <!-- <th scope="row"><input type="checkbox" [(ngModel)]="item.checked" [ngModelOptions]="{standalone: true}" (change)="totalCal()"></th> -->
+      <td>
+        huawei
+      </td>
+      <td>P40 </td>
+      <td>88</td>
+      <td>2020-01-01 10:10 </td>
+      <td>
+        <input type="button" value="View" routerLink="/display-item-complete"/>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</form>
+<a routerLink="/header" routerLinkActive="active">Back to Search</a>&nbsp;

@@ -1,0 +1,136 @@
+<h3>Welcome to register new users!wa wa</h3>
+<div class="sign-container">
+  <div class="space-6"></div>
+  <div id="signup-box" class="signup-box widget-box no-border visible">
+    <div class="widget-body">
+      <div class="widget-main">
+        <h6>
+          Sign-Up
+        </h6>
+        <div class="space-6"></div>
+
+        <form #signform="ngForm" class="form-signup" (ngSubmit)="onSubmit(signform.value)" novalidate>
+          <div>
+            <div class="form-group">
+              <label class="block clearfix">
+                <input type="text" class="form-control" id="username"
+                       name="username"  [(ngModel)]="signinfo.username"  placeholder="username" required>
+              </label>
+<!--              <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert-danger visible">-->
+<!--                <div *ngIf="username.errors?.required">-->
+<!--                  Please input your username!-->
+<!--                </div>-->
+<!--              </div>-->
+            </div>
+
+            <div class="form-group">
+              <label class="block clearfix">
+                <input type="password" class="form-control" id="password"
+                       name="password" [(ngModel)]="signinfo.password" placeholder="password" required>
+              </label>
+              <!--              <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert-danger valia">-->
+              <!--                <div *ngIf="password.errors.required">-->
+              <!--                  Please input your Password!-->
+              <!--                </div>-->
+              <!--                <div *ngIf="password.errors.minlength">-->
+              <!--                  Password must be at least 8 characters.-->
+              <!--                </div>-->
+              <!--              </div>-->
+
+              <label class="block clearfix">
+                <input type="password" class="form-control" id="confirmpassword"
+                       name="confirmpassword" [(ngModel)]="signinfo.confirmpassword" placeholder="Confirm password" required>
+              </label>
+              <!--              <div *ngIf="comfirmpassward.value != password.value" class="alert-danger valia">-->
+              <!--                Confirm password must be password consistent.-->
+              <!--              </div>-->
+
+              <label class="block clearfix">
+                <input type="email" class="form-control" id="email"
+                       name="email" [(ngModel)]="signinfo.email"  placeholder="you@domain.com" required>
+              </label>
+              <!--              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert-danger valia">-->
+              <!--                <div *ngIf="email.errors.required">-->
+              <!--                  Please input your email!-->
+              <!--                </div>-->
+              <!--                <div *ngIf="email.errors.email">-->
+              <!--                  Format should be you@domain.com!-->
+              <!--                </div>-->
+              <!--              </div>-->
+            </div>
+
+            <div *ngIf="'1'===signinfo.role">
+              <input type="text" pattern="[0-9]*" class="form-control" id="mobile"
+                     name="mobile" [(ngModel)]="signinfo.mobile"  placeholder="Mobile phone number">
+            </div>
+            <div *ngIf="'2'===signinfo.role">
+              <div class="form-group">
+                <label class="block clearfix">
+                  <input type="text" class="form-control" id="companyname"
+                         name="companyname" [(ngModel)]="signinfo.companyname" placeholder="companyname">
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="block clearfix">
+                  <input [(ngModel)]="signinfo.GSTIN"  type="text" class="form-control" id="GSTIN"
+                         name="GSTIN" placeholder="GSTIN">
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="block clearfix">
+                  <textarea name="brief" id="brief" class="form-control" rows="4"
+                            [(ngModel)]="signinfo.brief" placeholder="Brief about company"></textarea>
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="block clearfix">
+                  <input [(ngModel)]="signinfo.postal" type="text" class="form-control" id="postal"
+                         name="postal" placeholder="Postal address">
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="block clearfix">
+                  <input type="text" class="form-control" id="website"
+                         name="website" [(ngModel)]="signinfo.website"  placeholder="website">
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="block">
+                  <input type="text" pattern="[0-9]*" class="form-control" id="contactnumber"
+                         name="contactnumber" [(ngModel)]="signinfo.contactnumber" placeholder="Contact number">
+                </label>
+              </div>
+            </div>
+            <div>
+              <label>Role:</label>
+              <label>
+                <input type="radio" id="buyer" name="role" value="1"  [(ngModel)]="signinfo.role" >Buyer
+                <input type="radio" id="seller" name="role" value="2" [(ngModel)]="signinfo.role" >Seller
+              </label>
+            </div>
+            <label class="block">
+              <input type="checkbox" checked="checked" >
+              I agree to the
+              <a href="#" >Terms of Use</a>
+            </label>
+            <div class="space-24"></div>
+            <div class="clearfix">
+              <button type="reset" class="width-30 pull-left btn btn-sm">
+                <span class="bigger-100">Reset</span>
+              </button>
+
+              <button type="submit" class="width-65 pull-right btn btn-sm btn-success">
+                <span class="bigger-110">Create your eMart's acount</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="toolbar center">
+        <a routerLink="/login" class="back-to-login-link">
+          Return to Sign-In
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
