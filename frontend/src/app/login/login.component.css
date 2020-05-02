@@ -1,0 +1,196 @@
+.row {
+  width: 100%;
+  margin-top: 30px;
+
+}
+
+.login-container {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: 1px;
+  margin-bottom: auto;
+}
+.login-form{
+  width: 300px;
+}
+.login-form>label{
+  width: 40px;
+}
+.widget-box.no-border {
+  border-width: 0;
+}
+.center, .align-center {
+  text-align: center !important
+}
+
+.align-left {
+  text-align: left !important
+}
+
+.align-right {
+  text-align: right !important
+}
+
+.middle {
+  vertical-align: middle
+}
+
+.align-middle {
+  vertical-align: middle !important
+}
+
+.align-top {
+  vertical-align: top !important
+}
+
+.align-bottom {
+  vertical-align: bottom !important
+}
+
+.blue {
+  color: #478fca !important;
+}
+
+.red {
+  color: #ae6725 !important;
+  font-size: 80px;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.space {
+  max-height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  margin: 12px 0
+}
+
+.space-6 {
+  max-height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  /*margin: 12px 0;*/
+  /*margin: 6px 0 5px;*/
+}
+.space-24 {
+  max-height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+}
+.inline {
+  display: inline-block !important;
+  width: 250px;
+}
+
+.bigger-110 {
+  font-size: 110% !important;
+}
+
+.btn-primary, .btn-primary:focus {
+  background-color: #428bca !important;
+  border-color: #428bca;
+}
+
+.btn-sm, .btn-group-sm > .btn {
+  border-width: 4px;
+  font-size: 13px;
+  padding: 4px 9px;
+  line-height: 1.38;
+}
+
+.toolbar {
+  border-top-width: 1px;
+  background: #5090C1;
+  /*border-top: 2px solid #597597;*/
+}
+
+.toolbar > div > a {
+  font-size: 15px;
+  font-weight: 300;
+
+}
+
+.toolbar > div:first-child {
+  float: left;
+  text-align: center;
+}
+
+.toolbar > div:first-child + div {
+  float: right;
+  text-align: right;
+  text-shadow: 1px 0 1px rgba(0, 0, 0, .25);
+}
+
+.forgot-password-link {
+  color: #FE9;
+}
+
+.user-signup-link {
+  color: #82ff77;
+  padding-right: 20px;
+}
+
+.forgot-box .toolbar {
+  background: #C16050;
+  border-top: 2px solid #976559;
+  padding: 10px 30px;
+}
+
+.widget-box {
+  padding: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin: 3px 0;
+  border: 1px solid #CCC;
+}
+
+.widget-body {
+  background-color: #FFF;
+}
+
+.widget-box .widget-main {
+  padding: 16px 36px 36px;
+  background: #F7F7F7;
+}
+
+.center, .align-center {
+  text-align: center !important;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.width-30 {
+  width: 30% !important;
+}
+
+.width-35 {
+  width: 35% !important;
+}
+
+.btn-danger, .btn-danger:focus {
+  background-color: #d15b47 !important;
+  border-color: #d15b47;
+}
+
+.forgot-box .back-to-login-link, .signup-box .back-to-login-link {
+  color: #FE9;
+  font-size: 15px;
+  font-weight: 700;
+  text-shadow: 1px 0 1px rgba(0, 0, 0, .25);
+}
+
+.btn-sm, .btn-group-sm > .btn {
+  border-width: 4px;
+  font-size: 13px;
+  padding: 4px 9px;
+  line-height: 1.38;
+}

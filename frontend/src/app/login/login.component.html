@@ -1,0 +1,97 @@
+<h5>Welcom to eMart</h5>
+<!-- row-->
+<div class="row">
+  <!-- login-container-->
+  <div class="login-container">
+    <div class="space-6"></div>
+    <!-- position-relative-->
+    <div class="position-relative">
+      <div id="login-box" class="login-box widget-box no-border visible">
+        <div class="widget-body">
+          <div class="widget-main">
+            <div>
+              <h6>Sign-In</h6>
+            </div>
+<!--            <div class="space-6"></div>-->
+
+            <form class="login-form" #loginform="ngForm" (ngSubmit)="onSubmit(loginform.value)">
+              <div class="form-group">
+                <label>Role:</label>
+                <label>
+                  <input type="radio" value="1" name="role" [(ngModel)]="loginifo.role" checked="checked">Buyer
+                  <input type="radio" value="2" name="role" [(ngModel)]="loginifo.role">Seller
+                </label>
+              </div>
+              <div class="form-group">
+                <!--                <div class="input-group">-->
+                <label for="loginusename" class="input-group">
+                  <input type="text" name="username" id="loginusename" class="form-control"
+                         [(ngModel)]="loginifo.username"
+                         placeholder="username"
+                         required>
+                  <!--                </div>-->
+                  <div *ngIf="loginifo.username.invalid && (loginifo.username.dirty || loginifo.username.touched)"
+                       class="alert alert-danger">
+                    <div *ngIf="loginifo.username.errors.required">
+                      Please input your username!
+                    </div>
+                  </div>
+                </label>
+              </div>
+              <br>
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="password" id="password" name="password" class="form-control"
+                         [(ngModel)]="loginifo.password"
+                         required minlength='8' placeholder="********">
+                </div>
+                <div *ngIf="loginifo.password.invalid && (loginifo.password.dirty || loginifo.password.touched)"
+                     class="alert-danger valia">
+                  <div *ngIf="loginifo.password.errors.required">
+                    Please input your Password!
+                  </div>
+                  <div *ngIf='loginifo.password.error?.minlength && loginifo.password.touched' class="alert-danger">
+                    Password must be at least 8 characters long.
+                  </div>
+                </div>
+              </div>
+
+              <div class="space"></div>
+
+              <div class="clearfix">
+                <label class="inline">
+                  <input type="checkbox"/>
+                  <span> Remember me</span>
+                </label>
+                <button type="submit" class="width-35 pull-right btn btn-sm btn-primary"
+                        [disabled]='loginform.value.invalid'
+                        (click)='onSubmit(loginform)'>
+                  <span class="bigger-110">Sign-In</span>
+                </button>
+              </div>
+            </form>
+            <!-- /.widget-main -->
+          </div>
+          <div class="space-6"></div>
+          <div class="toolbar clearfix">
+            <div>
+              <!--              <a href="#" data-target="#forgot-box" class="forgot-password-link">-->
+              <!--                Forgot your password?-->
+              <!--              </a>-->
+              <p class="forgot-password-link">New to eMart?</p>
+            </div>
+            <div>
+              <a class="user-signup-link" routerLink="/signup" routerLinkActive="active">
+                Sign-Up
+              </a>
+            </div>
+          </div>
+          <!-- /.widget-body -->
+        </div>
+      </div>
+      <!-- /position-relative-->
+    </div>
+    <!-- /login-container-->
+  </div>
+  <!-- /row-->
+</div>
