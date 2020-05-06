@@ -1,0 +1,45 @@
+<div class="main-header">
+  <span class="header-menu">
+    <a routerLink="/login" routerLinkActive="active">logOut</a>&nbsp;
+  </span>
+</div>
+<h4>Seller Add Item</h4>
+<form>
+  <div class="row">
+    <div class="btn">
+      <input type="button" name="submit" value=" Add Item" routerLink="/seller-add-item">
+    </div>
+    <div class="btn">
+      <input type="button" name="Reports" value="Reports">
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Category</th>
+      <th scope="col">SubCategory</th>
+      <th scope="col">ItemName</th>
+      <th scope="col">Price</th>
+      <th scope="col">No. of StockItems</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <!--    <tr *ngFor="let item of purchaseList">-->
+      <!-- <th scope="row"><input type="checkbox" [(ngModel)]="item.checked" [ngModelOptions]="{standalone: true}" (change)="totalCal()"></th> -->
+      <td>
+        Electronic
+      </td>
+      <td>Mobile</td>
+      <td>HUAWEI P40</td>
+      <td>$1000</td>
+      <td>50000</td>
+      <td>
+        <input type="button" value=" View " routerLink="/seller-update-stock"/>
+        <input type="button" value="Delete"/>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</form>

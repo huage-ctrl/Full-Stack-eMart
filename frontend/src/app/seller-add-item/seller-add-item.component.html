@@ -1,0 +1,60 @@
+<div class="main-header">
+  <span class="header-menu">
+    <a routerLink="/login" routerLinkActive="active">logOut</a>&nbsp;
+  </span>
+</div>
+<h4>Seller Add Item</h4>
+<div class="row">
+  <div class="col-sm-10">
+    <table class="table">
+      <td>Category</td>
+      <td>
+        <select name="Category" class="col-md-9">
+          <option value=""></option>
+          <option>Electronic</option>
+          <option>Fashion</option>
+          <option>Food</option>
+        </select>
+      </td>
+      <tr>
+        <td>Select SubCategory</td>
+        <td>
+          <select name="subcategory" class="col-md-9">
+            <option value=""></option>
+            <option value="1">3C</option>
+            <option id="2">Mobile</option>
+            <option id="3">Camara</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Item name</td>
+        <td><input type="text" name="itemname"></td>
+      </tr>
+      <tr class="item">
+        <td>Price</td>
+        <td><input type="text" name="price"></td>
+      </tr>
+      <tr>
+        <td>No. of Stock Items</td>
+        <td><input type="text" name="remainning"></td>
+      </tr>
+      <tr>
+        <td>Item Description</td>
+        <td>
+          <textarea name="itemdesc" id="" cols="44" rows="4"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>ItemImagesUpload</td>
+        <td><input type="file" id="file-0" multiple class="file"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-2 offset-3">
+    <input type="button" name="submit" value="Add Item" routerLink="/seller-selling-list">
+  </div>
+</div>
