@@ -8,110 +8,118 @@
           Sign-Up
         </h6>
         <div class="space-6"></div>
-
-        <form #signform="ngForm" class="form-signup" (ngSubmit)="onSubmit(signform.value)" novalidate>
+        <form #signupForm="ngForm" class="form-signup" (ngSubmit)="submitForm(signupForm.value)" novalidate>
           <div>
-            <div class="form-group">
-              <label class="block clearfix">
-                <input type="text" class="form-control" id="username"
-                       name="username"  [(ngModel)]="signinfo.username"  placeholder="username" required>
-              </label>
-<!--              <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert-danger visible">-->
-<!--                <div *ngIf="username.errors?.required">-->
-<!--                  Please input your username!-->
-<!--                </div>-->
-<!--              </div>-->
+            <!--user           -->
+            <label for="username" class="block clearfix">
+              <input type="text" class="form-control" id="username" name="username" [(ngModel)]="signupinfo.username"
+                     #userName="ngModel" required minlength="4" maxlength="15" placeholder="username" >
+            </label>
+            <div *ngIf="userName.errors && (userName.dirty || userName.touched)" class="error">
+              <span [hidden]="!userName.errors.required">Please input your username!</span>
+              <span [hidden]="!userName.errors.minlength">The username length is 4 to 15.</span>
+              <span *ngIf="formErrors['username']" class="error">{{ formErrors['username'] }} </span>
+
             </div>
-
+            <!--password           -->
             <div class="form-group">
-              <label class="block clearfix">
+              <label for='password' class="block clearfix">
                 <input type="password" class="form-control" id="password"
-                       name="password" [(ngModel)]="signinfo.password" placeholder="password" required>
+                       name="password" [(ngModel)]="signupinfo.password" #password="ngModel" placeholder="password"
+                       required minlength="8">
               </label>
-              <!--              <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert-danger valia">-->
-              <!--                <div *ngIf="password.errors.required">-->
-              <!--                  Please input your Password!-->
-              <!--                </div>-->
-              <!--                <div *ngIf="password.errors.minlength">-->
-              <!--                  Password must be at least 8 characters.-->
-              <!--                </div>-->
-              <!--              </div>-->
-
-              <label class="block clearfix">
+              <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert-danger valia">
+                <span *ngIf="password.errors.required">
+                  Please input your Password!
+                </span>
+                <span *ngIf="password.errors.minlength">
+                  Password must be at least 8 characters.
+                </span>
+                <span *ngIf="formErrors['password']" class="error">{{ formErrors['password'] }} </span>
+              </div>
+              <!--confirmpassword           -->
+              <label for='confirmpassword' class="block clearfix">
                 <input type="password" class="form-control" id="confirmpassword"
-                       name="confirmpassword" [(ngModel)]="signinfo.confirmpassword" placeholder="Confirm password" required>
+                       name="confirmpassword" [(ngModel)]="signupinfo.confirmpassword" #confirmpassword="ngModel"
+                       placeholder="Confirm password" required>
               </label>
-              <!--              <div *ngIf="comfirmpassward.value != password.value" class="alert-danger valia">-->
-              <!--                Confirm password must be password consistent.-->
-              <!--              </div>-->
-
+              <span *ngIf="confirmpassword.value != password.value" class="alert-danger valia">
+                Confirm password must be password consistent.
+              </span>
+            </div>
+            <!--            email-->
+            <div>
               <label class="block clearfix">
                 <input type="email" class="form-control" id="email"
-                       name="email" [(ngModel)]="signinfo.email"  placeholder="you@domain.com" required>
+                       name="email" [(ngModel)]="signupinfo.email" required pattern="[\w]+?@[\w]+?\.[a-z]+?"
+                       placeholder="you@domain.com">
               </label>
-              <!--              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert-danger valia">-->
-              <!--                <div *ngIf="email.errors.required">-->
-              <!--                  Please input your email!-->
-              <!--                </div>-->
-              <!--                <div *ngIf="email.errors.email">-->
-              <!--                  Format should be you@domain.com!-->
-              <!--                </div>-->
-              <!--              </div>-->
+              <div *ngIf="formErrors.email" class="error">
+                {{ formErrors.email }}
+              </div>
             </div>
-
-            <div *ngIf="'1'===signinfo.role">
+            <!-- mobile-->
+            <div *ngIf="'1'===signupinfo.role">
+              <label for="mobile">
               <input type="text" pattern="[0-9]*" class="form-control" id="mobile"
-                     name="mobile" [(ngModel)]="signinfo.mobile"  placeholder="Mobile phone number">
+                     name="mobile" [(ngModel)]="signupinfo.mobile" placeholder="Mobile phone number">
+              </label>
             </div>
-            <div *ngIf="'2'===signinfo.role">
+            <div *ngIf="'2'===signupinfo.role">
               <div class="form-group">
                 <label class="block clearfix">
                   <input type="text" class="form-control" id="companyname"
-                         name="companyname" [(ngModel)]="signinfo.companyname" placeholder="companyname">
+                         name="companyname" [(ngModel)]="signupinfo.companyname" placeholder="companyname" required="">
                 </label>
               </div>
+              <!-- email-->
               <div class="form-group">
                 <label class="block clearfix">
-                  <input [(ngModel)]="signinfo.GSTIN"  type="text" class="form-control" id="GSTIN"
+                  <input [(ngModel)]="signupinfo.GSTIN" type="text" class="form-control" id="GSTIN"
                          name="GSTIN" placeholder="GSTIN">
                 </label>
               </div>
+              <!--brief about company-->
               <div class="form-group">
                 <label class="block clearfix">
                   <textarea name="brief" id="brief" class="form-control" rows="4"
-                            [(ngModel)]="signinfo.brief" placeholder="Brief about company"></textarea>
+                            [(ngModel)]="signupinfo.brief" placeholder="Brief about company"></textarea>
                 </label>
               </div>
+              <!--postal-->
               <div class="form-group">
                 <label class="block clearfix">
-                  <input [(ngModel)]="signinfo.postal" type="text" class="form-control" id="postal"
+                  <input [(ngModel)]="signupinfo.postal" type="text" class="form-control" id="postal"
                          name="postal" placeholder="Postal address">
                 </label>
               </div>
+              <!--wesite-->
               <div class="form-group">
                 <label class="block clearfix">
                   <input type="text" class="form-control" id="website"
-                         name="website" [(ngModel)]="signinfo.website"  placeholder="website">
+                         name="website" [(ngModel)]="signupinfo.website" placeholder="website">
                 </label>
               </div>
+              <!--contactnumber-->
               <div class="form-group">
                 <label class="block">
                   <input type="text" pattern="[0-9]*" class="form-control" id="contactnumber"
-                         name="contactnumber" [(ngModel)]="signinfo.contactnumber" placeholder="Contact number">
+                         name="contactnumber" [(ngModel)]="signupinfo.contactnumber" placeholder="Contact number">
                 </label>
               </div>
             </div>
+            <!-- role-->
             <div>
               <label>Role:</label>
               <label>
-                <input type="radio" id="buyer" name="role" value="1"  [(ngModel)]="signinfo.role" >Buyer
-                <input type="radio" id="seller" name="role" value="2" [(ngModel)]="signinfo.role" >Seller
+                <input type="radio" id="buyer" name="role" value="1" [(ngModel)]="signupinfo.role" checked>Buyer
+                <input type="radio" id="seller" name="role" value="2" [(ngModel)]="signupinfo.role">Seller
               </label>
             </div>
             <label class="block">
-              <input type="checkbox" checked="checked" >
+              <input type="checkbox" checked="checked">
               I agree to the
-              <a href="#" >Terms of Use</a>
+              <a href="#">Terms of Use</a>
             </label>
             <div class="space-24"></div>
             <div class="clearfix">
@@ -119,12 +127,14 @@
                 <span class="bigger-100">Reset</span>
               </button>
 
-              <button type="submit" class="width-65 pull-right btn btn-sm btn-success">
+              <button type="button" class="width-65 pull-right btn btn-sm btn-success"
+                      (click)="submitForm(signupForm.value)">
                 <span class="bigger-110">Create your eMart's acount</span>
               </button>
             </div>
           </div>
         </form>
+
       </div>
       <div class="toolbar center">
         <a routerLink="/login" class="back-to-login-link">
@@ -134,3 +144,5 @@
     </div>
   </div>
 </div>
+
+{{signupForm.value|json}}

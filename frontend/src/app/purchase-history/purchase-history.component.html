@@ -9,22 +9,36 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th scope="col" sortable="name" >SellerInfo</th>
-      <th scope="col" sortable="area" >Item</th>
-      <th scope="col" sortable="population" >Purchase quantity</th>
-      <th scope="col" sortable="updateDate" >DateTime</th>
-      <th scope="col" sortable="action" >Action</th>
+      <th scope="col">SellerInfo</th>
+      <th scope="col">Item</th>
+      <th scope="col">Purchase quantity</th>
+      <th scope="col">DateTime</th>
+      <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let item of purchaseList">
       <!-- <th scope="row"><input type="checkbox" [(ngModel)]="item.checked" [ngModelOptions]="{standalone: true}" (change)="totalCal()"></th> -->
-      <td>
-        huawei
-      </td>
-      <td>P40 </td>
-      <td>88</td>
-      <td>2020-01-01 10:10 </td>
+<!--      <td>-->
+<!--        huawei-->
+<!--      </td>-->
+<!--      <td>P40 </td>-->
+<!--      <td>88</td>-->
+<!--      <td>2020-01-01 10:10 </td>-->
+<!--      <td align="center">-->
+<!--        <a routerLink="/itemDetail">-->
+<!--          <img src="{{item.image_url_1}}" class="image">-->
+<!--        </a>-->
+<!--      </td>-->
+<!--      <td>{{item.item_name}}</td>-->
+<!--      <td>{{item.category}}</td>-->
+<!--      <td>{{item.sub_category}}</td>-->
+<!--      <td>{{item.seller}}</td>-->
+<!--      <td align="right">{{item.price}}</td>-->
+<!--      <td align="right">{{item.current_num}}</td>-->
+<!--      <td>{{item.purchase_time}}</td>-->
+<!--    </tr>-->
+
       <td>
         <input type="button" value="View" routerLink="/display-item-complete"/>
       </td>

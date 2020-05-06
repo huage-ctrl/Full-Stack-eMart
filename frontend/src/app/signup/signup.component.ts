@@ -1,47 +1,72 @@
-import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { Component, OnInit ,ViewChild, AfterViewInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
-  public signinfo:any={
-    role:'1',
-    username:'',
-    password:'',
-    confirmpassword:'',
-    email:'',
-    mobile:'',
-    companyname:'',
-    GSTIN:'',
-    brief:'',
-    postal:'',
-    website:'',
-    contactnumber:'',
+export class SignupComponent implements OnInit ,AfterViewInit{
+  signupinfo={} as any;
 
+  ngAfterViewInit(): void {
+    this.signupForm.valueChanges.subscribe(data => this.onValueChanged(data));
+  }
 
+  @ViewChild('signupForm') signupForm: NgForm;
 
-}
-  // userterms:{checked:false}
-  // signForm: FormGroup;
-  // role:string = 'buyer';
-  constructor(private fb: FormBuilder) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    // this.signForm = this.fb.group(
-    //   {
-    //     userName: ['', [Validators.required]],
-    //     email: ['', [Validators.required]],
-    //     password: ['', [Validators.required,Validators.minLength(8)]],
-    //     comfirmpassward: ['', [Validators.required,Validators.minLength(8)]]
-    //
-    //   });
+    this.signupinfo.role='1'
   }
 
-  onSubmit(value:any) {
-    console.log(value);
+  submitForm(obj: any) {
+      console.log(JSON.stringify(obj));
   }
+  onValueChanged(data) {
+
+    for (const field in this.formErrors) {
+      this.formErrors[field] = '';
+      const control = this.signupForm.form.get(field);
+      if (control && control.dirty && !control.valid) {
+        const messages = this.validationMessages[field];
+        for (const key in control.errors) {
+          this.formErrors[field] += messages[key] + '';
+        }
+      }
+
+    }
+  }
+  formErrors = {
+    'email': '',
+    'username': '',
+    'role':''
+  };
+
+  //Error corresponding prompt
+  validationMessages = {
+    'email': {
+      'required': 'Email must be filled in.',
+      'pattern': 'The mailbox must be filled in the wrong format',
+    },
+    'userName': {
+      'required': 'User name required.',
+      'minlength': 'The username is too short',
+    },
+    'password':{
+      'required': 'Please input your Password!',
+      'minlength': 'The password is too short',
+    },
+    'confirmpassword':{
+      'required': 'Please repeat the password',
+      'minlength': 'The password is too short',
+      'passwordNEQ':'Confirm password must be password consistent.',
+      'passwordInValid':''
+    },
+    'role':{
+      'required':'Role required'
+    }
+
+  };
 }

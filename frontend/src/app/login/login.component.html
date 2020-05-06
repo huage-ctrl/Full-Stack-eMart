@@ -12,60 +12,52 @@
             <div>
               <h6>Sign-In</h6>
             </div>
-<!--            <div class="space-6"></div>-->
+            <!--            <div class="space-6"></div>-->
 
             <form class="login-form" #loginform="ngForm" (ngSubmit)="onSubmit(loginform.value)">
               <div class="form-group">
                 <label>Role:</label>
-                <label>
-                  <input type="radio" value="1" name="role" [(ngModel)]="loginifo.role" checked="checked">Buyer
-                  <input type="radio" value="2" name="role" [(ngModel)]="loginifo.role">Seller
-                </label>
+                <input type="radio" value="1" name="role" [(ngModel)]="logininfo.role" checked>Buyer
+                <input type="radio" value="2" name="role" [(ngModel)]="logininfo.role">Seller
               </div>
               <div class="form-group">
-                <!--                <div class="input-group">-->
-                <label for="loginusename" class="input-group">
-                  <input type="text" name="username" id="loginusename" class="form-control"
-                         [(ngModel)]="loginifo.username"
-                         placeholder="username"
-                         required>
-                  <!--                </div>-->
-                  <div *ngIf="loginifo.username.invalid && (loginifo.username.dirty || loginifo.username.touched)"
-                       class="alert alert-danger">
-                    <div *ngIf="loginifo.username.errors.required">
-                      Please input your username!
-                    </div>
-                  </div>
+                <label for="username" class="input-group">
+                  <input type="text" name="username" id="username" class="form-control"
+                         [(ngModel)]="logininfo.username" #username="ngModel" required minlength="4" maxlength="15"
+                         placeholder="username">
                 </label>
+                <div *ngIf="username.errors && (username.dirty || username.touched)" class="alert alert-danger">
+                    <span [hidden]="!username.errors.required">
+                      Please input your username!
+                    </span>
+                  <span [hidden]="!username.errors.minlength">
+                      The username length is 4 to 15.
+                    </span>
+                </div>
               </div>
               <br>
               <div class="form-group">
-                <div class="input-group">
-                  <input type="password" id="password" name="password" class="form-control"
-                         [(ngModel)]="loginifo.password"
-                         required minlength='8' placeholder="********">
-                </div>
-                <div *ngIf="loginifo.password.invalid && (loginifo.password.dirty || loginifo.password.touched)"
-                     class="alert-danger valia">
-                  <div *ngIf="loginifo.password.errors.required">
-                    Please input your Password!
-                  </div>
-                  <div *ngIf='loginifo.password.error?.minlength && loginifo.password.touched' class="alert-danger">
-                    Password must be at least 8 characters long.
-                  </div>
+                <input type="password" id="password" name="password" class="form-control"
+                       [(ngModel)]="logininfo.password" #password="ngModel"
+                       required minlength='8' placeholder="********">
+                <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert-danger valia">
+                <span *ngIf="password.errors.required">
+                  Please input your Password!
+                </span>
+                  <span *ngIf="password.errors.minlength">
+                  Password must be at least 8 characters.
+                </span>
                 </div>
               </div>
-
               <div class="space"></div>
-
               <div class="clearfix">
                 <label class="inline">
                   <input type="checkbox"/>
                   <span> Remember me</span>
                 </label>
-                <button type="submit" class="width-35 pull-right btn btn-sm btn-primary"
+                <button type="button" class="width-35 pull-right btn btn-sm btn-primary"
                         [disabled]='loginform.value.invalid'
-                        (click)='onSubmit(loginform)'>
+                        (click)='onSubmit(loginform.value)'>
                   <span class="bigger-110">Sign-In</span>
                 </button>
               </div>
@@ -95,3 +87,4 @@
   </div>
   <!-- /row-->
 </div>
+{{loginform.value|json}}

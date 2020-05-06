@@ -7,8 +7,9 @@ import { PurchaseHistoryComponent } from './purchase-history/purchase-history.co
 import { HeaderComponent } from './header/header.component';
 import { DisplayItemSummaryComponent } from './display-item-summary/display-item-summary.component';
 import { DisplayItemCompleteComponent } from './display-item-complete/display-item-complete.component';
-import { ItemListComponent } from './item-list/item-list.component';
-import { ItemDetailsComponent } from './item-details/item-details.component';
+import { SellerSellingListComponent } from './seller-selling-list/seller-selling-list.component';
+import { SellerAddItemComponent } from './seller-add-item/seller-add-item.component';
+import { SellerUpdateStockComponent } from './seller-update-stock/seller-update-stock.component';
 
 const routes: Routes = [
   {
@@ -33,10 +34,13 @@ const routes: Routes = [
     path: 'display-item-complete', component: DisplayItemCompleteComponent
   },
   {
-    path: 'item-list', component: ItemListComponent
+    path: 'seller-selling-list', component: SellerSellingListComponent
   },
   {
-    path: 'item-details', component: ItemDetailsComponent
+    path: 'seller-add-item', component: SellerAddItemComponent
+  },
+  {
+    path: 'seller-update-stock', component: SellerUpdateStockComponent
   },
   {
     path: '**', redirectTo:'header'
