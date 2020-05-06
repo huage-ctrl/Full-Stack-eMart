@@ -1,6 +1,6 @@
 <div class="main-header">
   <span class="header-menu">
-    <a routerLink="/shopping-cart" routerLinkActive="active"><img src="../assets/cart1.jpg"></a>&nbsp;
+    <a routerLink="/shopping-cart" routerLinkActive="active"><img src="../assets/images/cart1.jpg"></a>
     <a routerLink="/login" routerLinkActive="active">logOut</a>&nbsp;
 </span>
 </div>
@@ -9,7 +9,11 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th scope="col"><input type="checkbox" (change)="selectAll()" ></th>
+      <th scope="col">
+        <label class="input-group">
+        <input type="checkbox" (change)="selectAll()" >
+        </label>
+      </th>
       <th scope="col" >ItemInfo</th>
       <th scope="col" >unit price</th>
       <th scope="col" >Aount</th>
@@ -19,14 +23,18 @@
     </thead>
     <tbody>
     <tr *ngFor="let item of cartList">
-      <th scope="row"><input type="checkbox" [(ngModel)]="item.checked" [ngModelOptions]="{standalone: true}" (change)="totalCal()"></th>
+      <th scope="row">
+        <label class="input-group">
+          <input type="checkbox" [(ngModel)]="item.checked" [ngModelOptions]="{standalone: true}" (change)="totalCal()">
+        </label>
+      </th>
       <td>
         huawei
       </td>
       <td>$1400</td>
       <td>1</td>
       <td>$1400</td>
-      <td align="center">
+      <td>
         <input type="button" name="edit" value="Edit" class="edit" routerLink="/display-item-complete"> &nbsp;
         <input type="button" name="delete" value="Delete" class="delete"> &nbsp;
       </td>
