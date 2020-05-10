@@ -3,57 +3,56 @@
     <a routerLink="/login" routerLinkActive="active">logOut</a>&nbsp;
 </span>
 </div>
-<h4>Seller Update Stock</h4>
-<div class="container">
+<h4>{{tile}}</h4>
+<div class="container-fluid">
   <div class="row">
-    <div >
-      <img src="../assets/images/taaaa.jpg" class="image" alt="">
+    <div class="col-md-4">
+      <img src="{{itemDetail.photo}}" width="300" height="300">
       <br>
     </div>
     <div class="col-md-6">
       <table class="table">
+
         <tr>
-          <td >Item Name</td>
-          <td>Hawei P40</td>
+          <td>ItemInfo</td>
+          <td>{{itemDetail.item_name}}</td>
         </tr>
         <tr>
           <td>Category</td>
-          <td>Electronic</td>
+          <td>{{itemDetail.category_id}}</td>
         </tr>
         <tr>
           <td>SubCategory</td>
-          <td>Mbile</td>
+          <td>{{itemDetail.subcategory_id}}</td>
         </tr>
         <tr>
           <td>Price</td>
-          <td>$1400</td>
+          <td>{{itemDetail.price}}</td>
         </tr>
         <tr>
           <td>StockNumber</td>
-          <td>5000</td>
+          <td>{{itemDetail.stock_num}}</td>
         </tr>
         <tr>
-          <td>Item Description：</td>
+          <td>Item Description</td>
           <td>
-            Certificate no. : 2020011606272300 <br>
-            certificate status: valid product <br>
-            name: 5G digital mobile phone <br>
-            (only checked for 2G,3G and 4G functions) <br>
-            3C specification model: els-an00 (switching <br>
+            {{itemDetail.description}}
           </td>
         </tr>
         <tr>
           <td>StockNumber</td>
           <td>
-            <input type="number"  min="0" max="100" style="width:50px"/>
+            <input type="number" min="1" style="width:100px"/>
           </td>
         </tr>
       </table>
+      <div class="col-md-3">
+        <input type="button" name="submit" routerLink="/seller-selling-list" value="Save & Sell Item">
+      </div>
     </div>
+
   </div>
-  <div class="row">
-    <div class="col-md-2 offset-9">
-      <input type="button" name="submit" routerLink="/seller-selling-list" value="Save & Sell Item">
-    </div>
-  </div>
+
 </div>
+
+

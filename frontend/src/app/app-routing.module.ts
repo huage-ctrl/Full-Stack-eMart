@@ -31,19 +31,19 @@ const routes: Routes = [
     path: 'display-item-summary', component: DisplayItemSummaryComponent
   },
   {
-    path: 'display-item-complete', component: DisplayItemCompleteComponent
+    path: 'display-item-complete/:id', component: DisplayItemCompleteComponent
   },
   {
-    path: 'seller-selling-list', component: SellerSellingListComponent
+    path: 'seller-selling-list',component: SellerSellingListComponent
   },
   {
     path: 'seller-add-item', component: SellerAddItemComponent
   },
   {
-    path: 'seller-update-stock', component: SellerUpdateStockComponent
+    path: 'seller-update-stock/:id', component: SellerUpdateStockComponent
   },
   {
-    path: '**', redirectTo:'header'
+    path: '**', redirectTo:'display-item-summary',pathMatch: 'full'
   }
 ];
 

@@ -3,7 +3,7 @@
     <a routerLink="/login" routerLinkActive="active">logOut</a>&nbsp;
   </span>
 </div>
-<h4>Seller Add Item</h4>
+<h4>{{tile}}</h4>
 <form>
   <div class="row">
     <div class="btn">
@@ -16,27 +16,23 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th scope="col">Category</th>
-      <th scope="col">SubCategory</th>
-      <th scope="col">ItemName</th>
-      <th scope="col">Price</th>
-      <th scope="col">No. of StockItems</th>
-      <th scope="col">Action</th>
+      <th >Category</th>
+      <th >SubCategory</th>
+      <th >ItemName</th>
+      <th >Price</th>
+      <th >ItemStock</th>
+      <th >Action</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <!--    <tr *ngFor="let item of purchaseList">-->
-      <!-- <th scope="row"><input type="checkbox" [(ngModel)]="item.checked" [ngModelOptions]="{standalone: true}" (change)="totalCal()"></th> -->
+    <tr *ngFor="let item of soldList">
+      <td>{{item.category_id}}</td>
+      <td>{{item.subcategory_id}}</td>
+      <td>{{item.item_name}}</td>
+      <td>{{item.price}}</td>
+      <td>{{item.stock_num}}</td>
       <td>
-        Electronic
-      </td>
-      <td>Mobile</td>
-      <td>HUAWEI P40</td>
-      <td>$1000</td>
-      <td>50000</td>
-      <td>
-        <input type="button" value=" View " routerLink="/seller-update-stock"/>
+        <input type="button" value=" View " [routerLink]="['/seller-update-stock/',item.item_id]"/>
         <input type="button" value="Delete"/>
       </td>
     </tr>

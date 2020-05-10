@@ -1,83 +1,78 @@
-
 <app-header></app-header>
-<h4>Item Specifications</h4>
-<!--<div class="container">-->
+<div>
+  <h4>{{tile}}</h4>
+</div>
+<div class="container">
   <div class="row">
-    <div id="myCarousel" class="carousel slider">
-      <ol class="carousel-indicators">
-        <li  data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li  data-target="#myCarousel" data-slide-to="1"></li>
-        <li  data-target="#myCarousel" data-slide-to="2"></li>
-        <li  data-target="#myCarousel" data-slide-to="3"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="item">
-          <img src="../assets/images/4444.jpg" alt="First slide">
-        </div>
-<!--        <div class="item">-->
-<!--          <img src="../assets/images/2222.jpg" alt="Second slide">-->
-<!--        </div>-->
-<!--        <div class="item">-->
-<!--          <img src="../assets/images/3333.jpg" alt="Third slide">-->
-<!--        </div>-->
-<!--        <div class="item">-->
-<!--          <img src="../assets/images/4444.jpg"  alt="Fourth slide">-->
-<!--        </div>-->
-      </div>
-<!--      <a class="carousel-control left" style="width:70px;" href="#myCarousel" data-slide="prev">-->
-<!--        <img class="carousel-item-left" src="../assets/images/left.png" />-->
-<!--      </a>-->
-<!--      <a class="carousel-control right" href="#myCarousel" data-slide="next">-->
-<!--        <img class="carousel-item-right" src="../assets/images/right.png"/>-->
-<!--      </a>-->
+    <!--      <ol class="carousel-indicators">-->
+    <!--        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
+    <!--&lt;!&ndash;        <li data-target="#myCarousel" data-slide-to="1"></li>&ndash;&gt;-->
+    <!--&lt;!&ndash;        <li data-target="#myCarousel" data-slide-to="2"></li>&ndash;&gt;-->
+    <!--&lt;!&ndash;        <li data-target="#myCarousel" data-slide-to="3"></li>&ndash;&gt;-->
+    <!--      </ol>-->
+    <!--      <div class="carousel-inner">-->
+    <div    >
+      <img src="{{itemDetail.photo}}" width="300" height="300">
     </div>
-    <div>
+    <!--                <div class="item">-->
+    <!--                  <img src="{{itemDetail.photo}}" alt="Second slide">-->
+    <!--                </div>-->
+    <!--                <div class="item">-->
+    <!--                  <img src="../assets/images/3333.jpg" alt="Third slide">-->
+    <!--                </div>-->
+    <!--                <div class="item">-->
+    <!--                  <img src="../assets/images/4444.jpg"  alt="Fourth slide">-->
+    <!--&lt;!&ndash;                </div>&ndash;&gt;-->
+    <!--      </div>-->
+    <!--            <a class="carousel-control left" style="width:70px;" href="#myCarousel" data-slide="prev">-->
+    <!--              <img class="carousel-item-left" src="../assets/images/left.png" />-->
+    <!--            </a>-->
+    <!--            <a class="carousel-control right" href="#myCarousel" data-slide="next">-->
+    <!--              <img class="carousel-item-right" src="../assets/images/right.png"/>-->
+    <!--            </a>-->
+    <div  class="itme col-sm-6">
       <table class="table">
         <tr>
-          <td>Item Name</td>
-          <td>Hawei</td>
+          <td>ItemInfo</td>
+          <td>{{itemDetail.item_name}}</td>
         </tr>
         <tr>
           <td>Category</td>
-          <td>P40</td>
+          <td>{{itemDetail.category_id}}</td>
         </tr>
         <tr>
           <td>SubCategory</td>
-          <td>Mbile</td>
+          <td>{{itemDetail.subcategory_id}}</td>
         </tr>
         <tr>
           <td>Price</td>
-          <td>$1400</td>
+          <td>{{itemDetail.price}}</td>
         </tr>
         <tr>
           <td>StockNumber</td>
-          <td>30</td>
+          <td>{{itemDetail.stock_num}}</td>
         </tr>
         <tr>
           <td>Item Description</td>
           <td>
-            Certificate no. : 2020011606272300 <br>
-            certificate status: valid product <br>
-            name: 5G digital mobile phone <br>
-            (only checked for 2G,3G and 4G functions) <br>
-            3C specification model: els-an00 (switching <br>
+            {{itemDetail.description}}
           </td>
         </tr>
         <tr>
           <td>Buy Number</td>
           <td>
             <label class="input-group">
-             <input type="number"  min="1"/>
+              <input type="number" min="1"/>
             </label>
           </td>
         </tr>
       </table>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-2 offset-9">
-      <input type="button" name="submit" routerLink="/shopping-cart" value="Add to Cart">
-    </div>
+  <div class="col-md-2 offset-9" align="center">
+    <input class="btn butChange" type="button" name="submit" (click)="addToCart(product)"
+           value="Add to Cart">
   </div>
-<!--</div>-->
-<a routerLink="/display-item-summary" class="align-right">Back to Search Results</a>&nbsp;
+</div>
+<a routerLink="/display-item-summary" routerLinkActive="active">Back to Search</a>&nbsp;
+

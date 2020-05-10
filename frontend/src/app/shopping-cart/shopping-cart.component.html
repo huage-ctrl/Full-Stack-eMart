@@ -1,10 +1,10 @@
 <div class="main-header">
   <span class="header-menu">
-    <a routerLink="/shopping-cart" routerLinkActive="active"><img src="../assets/images/cart1.jpg"></a>
+    <a routerLink="/shopping-cart" routerLinkActive="active"><img src="../assets/images/cart1.jpg" alt=""></a>
     <a routerLink="/login" routerLinkActive="active">logOut</a>&nbsp;
 </span>
 </div>
-<h4>Shopping Cart-CheckOut</h4>
+<h4>{{tile}}</h4>
 <form>
   <table class="table table-striped">
     <thead>
@@ -14,11 +14,11 @@
         <input type="checkbox" (change)="selectAll()" >
         </label>
       </th>
-      <th scope="col" >ItemInfo</th>
-      <th scope="col" >unit price</th>
-      <th scope="col" >Aount</th>
-      <th scope="col" >Total Money</th>
-      <th scope="col">Action</th>
+      <th>ItemInfo</th>
+      <th>unit price</th>
+      <th>Aount</th>
+      <th>SumMoney</th>
+      <th>Action</th>
     </tr>
     </thead>
     <tbody>
@@ -28,15 +28,13 @@
           <input type="checkbox" [(ngModel)]="item.checked" [ngModelOptions]="{standalone: true}" (change)="totalCal()">
         </label>
       </th>
-      <td>
-        huawei
-      </td>
-      <td>$1400</td>
-      <td>1</td>
-      <td>$1400</td>
+      <td>{{item.item_name}}</td>
+      <td>{{item.price}}</td>
+      <td>{{item.itemNumbers}}</td>
+      <td>{{item.price*item.itemNumbers}}</td>
       <td>
         <input type="button" name="edit" value="Edit" class="edit" routerLink="/display-item-complete"> &nbsp;
-        <input type="button" name="delete" value="Delete" class="delete"> &nbsp;
+        <input type="button" name="delete" value="Delete" class="delete" (click)="deleteItem(itemId)" > &nbsp;
       </td>
     </tr>
     </tbody>
@@ -48,17 +46,16 @@
   <div class="row">
     <div class="col-4">
       <ul>
-        <li>Total Tax :$30</li>
-        <li>Total Price : $1400</li>
-        <li>Discount :$0</li>
-        <li>Total Cost :$1430</li>
+        <li>Total Price : 15000</li>
       </ul>
     </div>
-    <div class="col-3">
-      <input  type="button" value="Checkout" />
+    <div>
+      <input type="button" value="Checkout" />
     </div>
   </div>
-  <a routerLink="/header" routerLinkActive="active">Back to Search</a>&nbsp;
+  <div>
+  <a routerLink="/display-item-summary" routerLinkActive="active">Back to Search</a>&nbsp;
+  </div>
 </div>
 
 

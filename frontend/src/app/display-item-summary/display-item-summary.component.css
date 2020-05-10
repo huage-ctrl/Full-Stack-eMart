@@ -1,3 +1,30 @@
+.main-header {
+  height: 60px;
+  width:100%;
+}
+.header-menu{
+  float: right;
+  height: 50px;
+  margin-right:10px;
+}
 .image{
   height:10%;
+}
+.container {
+  padding-top: 50px;
+  padding-bottom: 10px;
+  color: #405065;
+}
+
+.search-item {
+  width: 500px;
+  padding-bottom: 50px;
+  margin:auto;
+}
+
+.form-control {
+  box-shadow: 0 10px 40px 0 #B0C1D9;
+}
+.form-control::placeholder  {
+  font-family: FontAwesome;
 }

@@ -1,5 +1,13 @@
 import { Component, OnInit ,ViewChild, AfterViewInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
+import { Router} from '@angular/router';
+import { UserService } from '../services/user.service';
+
+interface Alert {
+  type: string;
+  message: string;
+}
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -14,13 +22,13 @@ export class SignupComponent implements OnInit ,AfterViewInit{
 
   @ViewChild('signupForm') signupForm: NgForm;
 
-  constructor() {
+  constructor(private router: Router,private userService:UserService) {
   }
 
   ngOnInit(): void {
     this.signupinfo.role='1'
   }
-
+  alerts: Alert[];
   submitForm(obj: any) {
       console.log(JSON.stringify(obj));
   }
@@ -40,7 +48,9 @@ export class SignupComponent implements OnInit ,AfterViewInit{
   }
   formErrors = {
     'email': '',
-    'username': '',
+    'userName': '',
+    'password':'',
+    'confirmpassword':'',
     'role':''
   };
 

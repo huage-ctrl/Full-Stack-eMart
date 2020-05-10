@@ -1,4 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { DatePipe } from "@angular/common";
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,12 +12,11 @@ import { DisplayItemSummaryComponent } from './display-item-summary/display-item
 import { SignupComponent } from './signup/signup.component';
 import { HeaderComponent } from './header/header.component';
 import { ItemService } from './services/item.service';
-import { CartService } from './services/cart.service';
-import { PurchaseService } from './services/purchase.service';
 import { UserService } from './services/user.service';
 import { SellerAddItemComponent } from './seller-add-item/seller-add-item.component';
 import { SellerUpdateStockComponent } from './seller-update-stock/seller-update-stock.component';
 import { SellerSellingListComponent } from './seller-selling-list/seller-selling-list.component';
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 @NgModule({
   declarations: [
@@ -36,9 +36,11 @@ import { SellerSellingListComponent } from './seller-selling-list/seller-selling
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
   ],
-  providers: [ItemService,CartService,UserService,DatePipe,PurchaseService],
+  providers: [ItemService,UserService, DatePipe],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

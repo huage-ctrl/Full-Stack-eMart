@@ -10,14 +10,24 @@ export class UserService {
   // user testdata
   userList:any[] = [
       {username:"buyer001", password:"buyer001", role:"1"},
+      {username:"buyer002", password:"buyer002", role:"1"},
       {username:"seller001", password:"seller001", role:"2"}
   ]
 
+  // getUserId(user:string){
+  //   let userinfo:any[] = [];
+  //   this.userList.forEach(userIn=>{
+  //     if(userIn.username === user){
+  //       userinfo.push(userIn)
+  //     }
+  //   });
+  //   return userinfo;
+  // }
+
   checkUser(username:string,password:string,role:string):any{
-      console.log("call user service");
     for(let i = 0 ; i < this.userList.length ; i++){
         if(username === this.userList[i].username && password === this.userList[i].password && role === this.userList[i].role){
-            return { username:this.userList[i].username, role:this.userList[i].role};
+            return { username:this.userList[i].username, password:this.userList[i].password,role:this.userList[i].role};
         }
     }
     return {error:"logon faile"}

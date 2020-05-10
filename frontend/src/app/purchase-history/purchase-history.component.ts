@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PurchaseService } from '../services/purchase.service'
-
+import {ItemService} from '../services/item.service';
 @Component({
   selector: 'app-purchase-history',
   templateUrl: './purchase-history.component.html',
@@ -8,12 +7,10 @@ import { PurchaseService } from '../services/purchase.service'
 })
 export class PurchaseHistoryComponent implements OnInit {
 
-  constructor(private purchaseService:PurchaseService) { }
-
-  ngOnInit(): void {
-    this.purchaseList = this.purchaseService.getPurchaseHistoryByBuyerId("buyer001");
-  }
+  constructor(private itemService:ItemService) { }
   purchaseList:any[];
-
+  ngOnInit(): void {
+    this.purchaseList = this.itemService.getPurchaseHistoryByBuyerId("buyer001");
+  }
 
 }
